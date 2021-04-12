@@ -1,0 +1,4 @@
+include ':ButtonView'
+include ':EditView'
+include ':TextView'
+rootProject.name = "UIModule"

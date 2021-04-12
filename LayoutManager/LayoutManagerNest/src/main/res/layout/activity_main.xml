@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="雪绒花"
-            android:textColor="#576b95"
+            android:textColor="#576B95"
             android:id="@+id/name1"
             android:layout_marginTop="10dp"
             android:layout_toRightOf="@+id/img1"/>

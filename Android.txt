@@ -53,7 +53,38 @@ layout_rowWeight：子组件分配父组件垂直方向剩余空间的比例
 根布局管理器必须包含xmlns属性，在一个布局文件中最多只能有一个根布局管理器，不能有太多嵌套，会影响性能
 
 UI组件：
+TextView：文本框组件，子类EditView的属性也可以使用
+singleLine：设置文本框是否为单行文本框，多余的文字会被...代替
+maxWidth：设置文本框的最大宽度，方便其自动换行
+设置字体大小用sp，设置宽度大小用dp
 
+EditView：编辑框组件，是TextView的子类
+hint：设置提示文字，一旦输入内容就会消失
+inputType：设置输入类型，比如textPassword设置成密码框，设置textMultiLine可以监听到setOnEditorActionListener回车事件
+drawableLeft：在编辑框左侧显示图片，和drawableStart一样，还有drawableBottom、drawableRight（drawableEnd）、drawableTop
+drawablePadding：设置图片和文字的距离，单位是dp
+lines：设置编辑框组件的文本行数，多余的文本会自动滚动隐藏
+交互：EditText et=findViewById(R.id.编辑框的id)；//获取编辑框组件
+et.getText();//获取编辑框中输入的文本
+
+ImageView：图像组件
+src：设置图片
+scaleType：如何显示图片，默认是等比缩放，fitXY使图片缩放到控件大小，完全填充控件大小展示
+
+ButtonView：按钮组件，是TextView的子类
+text：设置按钮文本
+交互：方法1：匿名内部类
+Button button=findViewById(R.id.按钮id);//获取按钮对象
+button.setOnClickListener(new View.OnClickListener(){
+	@Override
+	public void onClick(View v){
+		//弹出一个消息提示框,Toast.LENGTH_SHORT是设置提示框显示时间长短
+		Toast.makeText(MainActivity.this,"单击了按钮",Toast.LENGTH_SHORT).show();
+	}
+});
+
+
+常用监听器
 
 注意事项：
 1、如果开起来手机设备找不到就在任务管理器中关闭adb.exe，再重启编译器
