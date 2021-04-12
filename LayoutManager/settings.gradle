@@ -1,0 +1,12 @@
+include ':LayoutManagerNest'
+include ':GridLayoutManager'
+include ':TableLayoutManager'
+include ':FrameLayoutManager'
+include ':LinearnLayoutManager'
+include ':RelativeLayoutManager'
+include ':CustomView'
+include ':JavaAndXMLControlUI'
+include ':JavaControlUI'
+include ':XMLControlUI'
+include ':HelloWorld'
+rootProject.name = "My Application"

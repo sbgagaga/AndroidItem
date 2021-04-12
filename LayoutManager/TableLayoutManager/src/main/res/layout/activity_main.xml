@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/biaoge"
+    android:stretchColumns="0,3"
+    tools:context=".MainActivity">
+
+    <TableRow
+        android:paddingTop="200dp">
+        <TextView />
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="18sp"
+            android:gravity="center_horizontal"
+            android:text="账  号"/>
+        <EditText
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:hint="邮箱或手机号码"/>
+
+        <TextView />
+    </TableRow>
+    <TableRow>
+        <TextView />
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="18sp"
+            android:gravity="center_horizontal"
+            android:text="密  码"/>
+        <EditText
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:hint="输入6-16数字或字母"/>
+
+        <TextView />
+    </TableRow>
+
+    <TableRow>
+        <TextView />
+
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="注  册"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FF8247"
+            android:text="登  入" />
+
+        <TextView />
+    </TableRow>
+
+    <TableRow>
+        <TextView/>
+        <TextView/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ff4500"
+            android:gravity="right"
+            android:text="忘记密码？"/>
+        <TextView/>
+    </TableRow>
+
+</TableLayout>

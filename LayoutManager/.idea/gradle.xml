@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="testRunner" value="PLATFORM" />
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleJvm" value="1.8" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/CustomView" />
+            <option value="$PROJECT_DIR$/FrameLayoutManager" />
+            <option value="$PROJECT_DIR$/GridLayoutManager" />
+            <option value="$PROJECT_DIR$/HelloWorld" />
+            <option value="$PROJECT_DIR$/JavaAndXMLControlUI" />
+            <option value="$PROJECT_DIR$/JavaControlUI" />
+            <option value="$PROJECT_DIR$/LayoutManagerNest" />
+            <option value="$PROJECT_DIR$/LinearnLayoutManager" />
+            <option value="$PROJECT_DIR$/RelativeLayoutManager" />
+            <option value="$PROJECT_DIR$/TableLayoutManager" />
+            <option value="$PROJECT_DIR$/XMLControlUI" />
+          </set>
+        </option>
+        <option name="resolveModulePerSourceSet" value="false" />
+        <option name="useQualifiedModuleNames" value="true" />
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

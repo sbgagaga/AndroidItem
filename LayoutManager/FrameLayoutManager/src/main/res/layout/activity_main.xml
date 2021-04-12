@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:foreground="@mipmap/mr"
+    android:foregroundGravity="bottom|right"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="280dp"
+        android:layout_height="280dp"
+        android:text="蓝色背景的TextView"
+        android:textColor="#ffffffff"
+        android:layout_gravity="center"
+        android:background="#ff0000ff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="230dp"
+        android:layout_height="230dp"
+        android:text="天蓝色背景的TextView"
+        android:textColor="#ffffffff"
+        android:layout_gravity="center"
+        android:background="#ff0077ff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:text="水蓝色背景的TextView"
+        android:textColor="#ffffffff"
+        android:layout_gravity="center"
+        android:background="#ff00b4ff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</FrameLayout>

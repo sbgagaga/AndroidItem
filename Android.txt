@@ -1,0 +1,66 @@
+View类常用属性：
+id属性：变量名
+background属性：背景
+padding：内边距
+	paddingLeft（paddingStart）、paddingTop、paddingRight、paddingBottom（paddingEnd）
+ViewGroup extends View：是一个抽象类
+ViewGroup.LayputParams：是ViewGroup 内部类
+layout_height：控制组件布局高度
+layout_width：控制组件布局宽度
+以上2个参数可以设置成具体数值，也可以使用Match_Parent（与父容器相同）、Wrap_Content（包裹自身内容）
+ViewGroup.MarginLayoutParams：是ViewGroup 内部类，用来组件的外边距
+layout_marginTop、layout_marginBottom、layout_marginLeft（layout_marginStart）、layout_marginRight（layout_marginEnd）
+layout_gravity：设置组件自身相当于父容器的对齐方式
+
+RelativeLayout:相对布局管理器
+gravity：设置在布局管理器中各组件的位置，可以用|连接2个关键字进行设置
+ignoreGravity：设置组件不受gravity影响
+RelativeLayout.LayoutParams:相对布局管理器子组件
+layout_above、layout_below、layout_toLeftOf、layout_toRightOf：设置组件相对于参考组件位置（不是覆盖）
+layout_alignParentBottom、layout_alignParentLeft、layout_alignParentRight、layout_alignParentTop：设置组件与布局管理器哪边对齐
+layout_alignBottom、layout_alignLeft、layout_alignRight、layout_alignTop：设置组件与某一个组件的上下左右边界对齐
+layout_centerHorizontal、layout_centerInParent、layout_centerVertical：设置组件位于布局管理器哪个位置
+
+LinearLayout：线性布局管理器，分为垂直、水平布局管理器：每一行或者每一列只能放置一个组件，如果组件放置过多，超过屏幕将不会被显示
+orientation：设置线性布局管理器是垂直还是水平
+gravity：设置布局管理器内组件的位置，可以用|连接2个关键字进行设置
+layout_weight：设置组件占父容器剩余空间的比例，默认是0.例如：一个水平布局管理器一共长100，一个组件20，一个组件30，剩余50，把这2个组件的比重都设置成1，那么将分配成45,55。
+
+FrameLayout：帧布局管理器
+foreground：设置前景图像，前景图像：始终位于最上层的图像
+foregroundGravity：设置前景图像的位置
+
+TableLayout：表格布局管理器，没有列，在每一行中添加一个组件就占一列
+TableRow：表格中的行容器，表示一行，可以再添加其他组件
+collapseColumns：设置一列不显示，索引从0开始，可以隐藏多列，使用逗号分割
+stretchColumns：设置列可以被拉伸，即这一列会被拉伸占据剩余空间
+shrinkColumns:设置列允许被收缩，即当一行超过屏幕，收缩该列，让整行得以显示
+
+GridLayout：网格布局管理器
+columnCount：指定最大列数
+orientation：设置排列方式（水平或垂直排列）
+rowCount：指定最大行数
+layout_colums：指定子组件位于网格第几列
+layout_columnSpan：指定组件横向跨几列
+layout_columnWeight：子组件分配父组件水平方向剩余空间的比例
+layout_gravity：子组件通过什么方式占据网格空间的（什么居中，水平居中，fill之类）
+layout_row：指定子组件位于网格的第几行
+layout_rowSpan：指定组件纵向跨几行
+layout_rowWeight：子组件分配父组件垂直方向剩余空间的比例
+跨行和跨列操作需要同时指定layout_gravity为fill。
+
+布局管理器的嵌套
+根布局管理器必须包含xmlns属性，在一个布局文件中最多只能有一个根布局管理器，不能有太多嵌套，会影响性能
+
+UI组件：
+
+
+注意事项：
+1、如果开起来手机设备找不到就在任务管理器中关闭adb.exe，再重启编译器
+2、design editor is unavailable until next gradle sync，如果界面出现这个错误点击sync project with Gradle Files按钮即可
+3、按键背景颜色无法生效时修改res/values/themes.xml和res/values-night/themes.xml文件中<style name="Theme.HelloWorld" parent="Theme.MaterialComponents.DayNight.DarkActionBar.Bridge">
+
+
+
+
+
