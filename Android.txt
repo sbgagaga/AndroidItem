@@ -9,7 +9,7 @@ layout_height：控制组件布局高度
 layout_width：控制组件布局宽度
 以上2个参数可以设置成具体数值，也可以使用Match_Parent（与父容器相同）、Wrap_Content（包裹自身内容）
 ViewGroup.MarginLayoutParams：是ViewGroup 内部类，用来组件的外边距
-layout_marginTop、layout_marginBottom、layout_marginLeft（layout_marginStart）、layout_marginRight（layout_marginEnd）
+layout_marginTop、layout_marginBottom、layout_marginLeft（layout_marginStart）、layout_marginRight（layout_marginEnd） 
 layout_gravity：设置组件自身相当于父容器的对齐方式
 
 RelativeLayout:相对布局管理器
