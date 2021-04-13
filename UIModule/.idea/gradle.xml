@@ -12,7 +12,11 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/ButtonView" />
+            <option value="$PROJECT_DIR$/CheckBoxView" />
+            <option value="$PROJECT_DIR$/DatePicker" />
             <option value="$PROJECT_DIR$/EditView" />
+            <option value="$PROJECT_DIR$/ImageButtonView" />
+            <option value="$PROJECT_DIR$/RadioButton" />
             <option value="$PROJECT_DIR$/TextView" />
           </set>
         </option>

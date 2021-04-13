@@ -1,3 +1,7 @@
+include ':DatePicker'
+include ':CheckBoxView'
+include ':RadioButton'
+include ':ImageButtonView'
 include ':ButtonView'
 include ':EditView'
 include ':TextView'
