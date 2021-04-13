@@ -14,11 +14,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button bt=findViewById(R.id.bt);
-        bt.setOnClickListener(new View.OnClickListener() {
+        Button login =findViewById(R.id.bt);
+        login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this,"按了按钮",Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this,"您已授权登入",Toast.LENGTH_LONG).show();
             }
         });
     }

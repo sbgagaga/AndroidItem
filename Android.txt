@@ -82,14 +82,60 @@ button.setOnClickListener(new View.OnClickListener(){
 		Toast.makeText(MainActivity.this,"单击了按钮",Toast.LENGTH_SHORT).show();
 	}
 });
+方法2：类似于QT的信号与槽
+在java文件中定义一个方法，在Button组件中使用onClick属性指定方法名即可
+
+ImageButton：图片按钮组件
+
+RadioGroup：包含RadioButton组件，组成单选按钮组
+
+RadioButton：单选按钮组件
+text：设置文字
+checked：设置为默认值，使用true
+交互：获取选中的值
+RadioGroup rg=findViewById(R.id.单选按钮组id);
+rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+	@Override
+	public void onCheckedChanged(RadioGroup group, int checkedId) {
+		RadioButton rb=findViewById(checkedId);
+                	Toast.makeText(MainActivity.this, rb.getText(), Toast.LENGTH_SHORT).show();	
+	}
+});
+在添加一个提交按钮
+Button bt=findViewById(R.id.tijiao);
+bt.setOnClickListener(new View.OnClickListener() {
+	@Override
+	public void onClick(View v) {
+		for (int i = 0; i <rg.getChildCount() ; i++) {
+			RadioButton r= (RadioButton) rg.getChildAt(i);
+			if(r.isChecked()){
+				Toast.makeText(MainActivity.this,r.getText(),Toast.LENGTH_SHORT).show();
+				break;
+			}
+		}
+	}
+});
+
+CheckBox：复选框组件
+交互：CheckBox cb=findViewById(R.id.复选框id);
+cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+	@Override
+	public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+		//
+	}	
+}
+
+DatePicker：日期选择器，长度和宽度都选中和父容器相同
 
 
-常用监听器
+
 
 注意事项：
 1、如果开起来手机设备找不到就在任务管理器中关闭adb.exe，再重启编译器
 2、design editor is unavailable until next gradle sync，如果界面出现这个错误点击sync project with Gradle Files按钮即可
 3、按键背景颜色无法生效时修改res/values/themes.xml和res/values-night/themes.xml文件中<style name="Theme.HelloWorld" parent="Theme.MaterialComponents.DayNight.DarkActionBar.Bridge">
+4、APP设置全屏显示的时候使用getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+	//但是标题栏没有去除掉，原因是继承了AppCompatActivity，在主配置文件中修改成android:theme="@style/Theme.AppCompat.NoActionBar"即可，参考https://blog.csdn.net/android157/article/details/80774143
 
 
 
