@@ -126,7 +126,16 @@ cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 }
 
 DatePicker：日期选择器，长度和宽度都选中和父容器相同
-
+交互：int year,month,day;
+DatePicker dp=findViewById(R.id.日期选择器id);
+dp.init(year,month,day,new DatePicker.OnDateChangedListener(){
+	@Override
+	public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+		MainActivity.this.year = year;
+		MainActivity.this.month = monthOfYear;
+		MainActivity.this.day = dayOfMonth;//获取选择的日期
+	}
+});
 
 
 
