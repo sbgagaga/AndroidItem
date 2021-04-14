@@ -1,3 +1,5 @@
+include ':Chronometer'
+include ':TimePicker'
 include ':DatePicker'
 include ':CheckBoxView'
 include ':RadioButton'

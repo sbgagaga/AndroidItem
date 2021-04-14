@@ -52,7 +52,9 @@ layout_rowWeight：子组件分配父组件垂直方向剩余空间的比例
 布局管理器的嵌套
 根布局管理器必须包含xmlns属性，在一个布局文件中最多只能有一个根布局管理器，不能有太多嵌套，会影响性能
 
-UI组件：
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+基础UI组件：
 TextView：文本框组件，子类EditView的属性也可以使用
 singleLine：设置文本框是否为单行文本框，多余的文字会被...代替
 maxWidth：设置文本框的最大宽度，方便其自动换行
@@ -70,6 +72,7 @@ et.getText();//获取编辑框中输入的文本
 ImageView：图像组件
 src：设置图片
 scaleType：如何显示图片，默认是等比缩放，fitXY使图片缩放到控件大小，完全填充控件大小展示
+setImageAlpha();//设置透明度
 
 ButtonView：按钮组件，是TextView的子类
 text：设置按钮文本
@@ -137,14 +140,78 @@ dp.init(year,month,day,new DatePicker.OnDateChangedListener(){
 	}
 });
 
+TimePicker：时间选择器
+交互：TimePicker tp=findViewById(R.id.timePicker);
+tp.setIs24HourView(true);//设置成24小时制
+tp.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
+		@Override
+		public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
+		String str=hourOfDay+"时"+minute+"分";
+		Toast.makeText(MainActivity.this,str,Toast.LENGTH_SHORT).show();
+	}
+});
 
+Chronometer：计时器是TextView的子类
+format：设置格式，例如"已用时间：%s"
+setBase()：设置计时器的起始时间
+setFormat()：设置显示时间的格式
+start()：指定开始计时
+stop()：指定停止计时
+setOnChronometerTickListener()：为计时器绑定事件监听器，当计时器改变时触发该监听器
+交互：Chronometer ch=findViewById(R.id.ch);
+ch.setBase(SystemClock.elapsedRealtime());
+ch.setFormat("%s");
+ch.start();
+ch.setOnChronometerTickListener(new Chronometer.OnChronometerTickListener() {
+	@Override
+	public void onChronometerTick(Chronometer chronometer) {
+	if (SystemClock.elapsedRealtime()-ch.getBase()>=60000){//毫米单位
+			ch.stop();
+		}
+	}
+});
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+高级UI组件：
+ProgressBar：进度条组件
+max：设置进度条最大值，例如"100"
+progress：设置当前进度值，例如"50"
+style：设置样式，没有android:前缀。
+值有?android:attr/progressBarStyleHorizontal（水平进度条）、...Small（小的圆形进度条）、...Large（大的圆形进度条）
+@android:style/Widget.ProgressBar.Horizontal、...Small、...Large，第一个比上面粗，后面2个是规律旋转，上面的是不规律旋转
+
+SeekBar：拖动条组件，是进度条的子类
+thumb：设置拖动条原点的图案，可以是图片
+交互：SeekBar seekBar=findViewById(id号);
+seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+	@Override
+	public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {//参数2表示当前进度
+		//进度条改变
+	}
+
+	@Override
+	public void onStartTrackingTouch(SeekBar seekBar) {
+		//开始触摸进度条
+	}
+
+	@Override
+	public void onStopTrackingTouch(SeekBar seekBar) {
+		//结束触摸进度条
+	}
+});
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
 
 注意事项：
 1、如果开起来手机设备找不到就在任务管理器中关闭adb.exe，再重启编译器
 2、design editor is unavailable until next gradle sync，如果界面出现这个错误点击sync project with Gradle Files按钮即可
 3、按键背景颜色无法生效时修改res/values/themes.xml和res/values-night/themes.xml文件中<style name="Theme.HelloWorld" parent="Theme.MaterialComponents.DayNight.DarkActionBar.Bridge">
 4、APP设置全屏显示的时候使用getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-	//但是标题栏没有去除掉，原因是继承了AppCompatActivity，在主配置文件中修改成android:theme="@style/Theme.AppCompat.NoActionBar"即可，参考https://blog.csdn.net/android157/article/details/80774143
+//但是标题栏没有去除掉，原因是继承了AppCompatActivity，在主配置文件中修改成android:theme="@style/Theme.AppCompat.NoActionBar"即可，参考https://blog.csdn.net/android157/article/details/80774143
 
 
 

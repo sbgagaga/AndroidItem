@@ -13,11 +13,13 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/ButtonView" />
             <option value="$PROJECT_DIR$/CheckBoxView" />
+            <option value="$PROJECT_DIR$/Chronometer" />
             <option value="$PROJECT_DIR$/DatePicker" />
             <option value="$PROJECT_DIR$/EditView" />
             <option value="$PROJECT_DIR$/ImageButtonView" />
             <option value="$PROJECT_DIR$/RadioButton" />
             <option value="$PROJECT_DIR$/TextView" />
+            <option value="$PROJECT_DIR$/TimePicker" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
