@@ -69,11 +69,6 @@ lines：设置编辑框组件的文本行数，多余的文本会自动滚动隐
 交互：EditText et=findViewById(R.id.编辑框的id)；//获取编辑框组件
 et.getText();//获取编辑框中输入的文本
 
-ImageView：图像组件
-src：设置图片
-scaleType：如何显示图片，默认是等比缩放，fitXY使图片缩放到控件大小，完全填充控件大小展示
-setImageAlpha();//设置透明度
-
 ButtonView：按钮组件，是TextView的子类
 text：设置按钮文本
 交互：方法1：匿名内部类
@@ -201,8 +196,58 @@ seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 	}
 });
 
+RatingBar：星级评分条
+numStars：设置星星个数
+rating：默认点亮星星数量
+stepSize：设置选择星星至少是几颗，默认是0.5
+isIndicator：设置星星是否能被改变，true表示不能改变
+交互：RatingBar rb=findViewById(id);
+String rating=String.valueOf(rb.getRating());//获取到选中星星的个数再把float转换成字符串
+String stepSize=String.valueOf(rb.getStepSize());//获取每次至少要改变多少星级再转换成字符串
+String stepSize=String.valueOf(rb.getProgress());//获取进度，就相当于有多少颗星星
+
+ImageView：图像组件
+src：设置图片
+scaleType：如何显示图片，默认是等比缩放。fitXY：使图片X轴和Y轴独立缩放
+adjustViewBounds：指定是否调整自己的边界来调整图片的长宽比，用来设置图像视图的最大高度和最大宽度
+maxWidth：设置最大宽度
+maxHeight：设置最大高度
+tint：设置着色，相当于图像加一层滤镜
+setImageAlpha();//设置透明度
+
+ImageSwitcher：图像切换器
+交互：ImageSwitcher is =findViewById(id);
+is.setOutAnimation(AnimationUtils.loadAnimation(MainActivity.this,android.R.anim.fade_out));//设置淡出动画
+is.setInAnimation(AnimationUtils.loadAnimation(MainActivity.this,android.R.anim.fade_in));//设置淡出动画
+
+GridView：网格视图（有点难后期要多看看了，代码抄好了）
+numColumns：设置列数，参数auto_fit表示自动排列
+verticalSpacing：设置间距
+columnWidth：设置宽度
+
+Adapter：适配器，常用ArrayAdapter、SmipleAdapter、SmipleCursorAdapter、BaseAdapter的实现类
+
+Spinner：下拉列表框
+entries：设置下拉列表内容，需要先在values文件夹中先创建一个xml文件，取名arrays.xml，例如：android:entries="@array/ctype"，可以不使用这个属性而使用适配器
+例如：<resources>
+<string-array name="ctype">
+	<item>全部</item>
+	<item>图书</item>
+	<item>花花</item>
+	<item>聊聊</item>
+	</string-array>>
+</resources>
+
+ListView：列表视图
+entries：设置列表项
 
 
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+AndroidManifest.xml文件
+<activity android:name=".MainActivity"
+android:screenOrientation="landscape">//设置APP为横屏
+ </activity>
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -212,7 +257,9 @@ seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 3、按键背景颜色无法生效时修改res/values/themes.xml和res/values-night/themes.xml文件中<style name="Theme.HelloWorld" parent="Theme.MaterialComponents.DayNight.DarkActionBar.Bridge">
 4、APP设置全屏显示的时候使用getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 //但是标题栏没有去除掉，原因是继承了AppCompatActivity，在主配置文件中修改成android:theme="@style/Theme.AppCompat.NoActionBar"即可，参考https://blog.csdn.net/android157/article/details/80774143
-
+5、drawable是可拉伸，矢量图拉伸不会破坏图像效果，mipmap是分级细化
+6、Ctrl+Alt+空格：可以列出所有可选择的值
+7、android.R.layout.xx都是系统自带的配置文件id号
 
 
 
