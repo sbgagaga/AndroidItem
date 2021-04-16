@@ -1,4 +1,7 @@
-include ':ListView'
+include ':TabHost'
+include ':ScrollView'
+include ':ListView2'
+include ':ListView1'
 include ':Spinner2'
 include ':Spinner1'
 include ':GridView1'

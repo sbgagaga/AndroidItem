@@ -15,12 +15,15 @@
             <option value="$PROJECT_DIR$/GridView2" />
             <option value="$PROJECT_DIR$/ImageSwitcher" />
             <option value="$PROJECT_DIR$/ImageView" />
-            <option value="$PROJECT_DIR$/ListView" />
+            <option value="$PROJECT_DIR$/ListView1" />
+            <option value="$PROJECT_DIR$/ListView2" />
             <option value="$PROJECT_DIR$/ProgressBar" />
             <option value="$PROJECT_DIR$/RatingBar" />
+            <option value="$PROJECT_DIR$/ScrollView" />
             <option value="$PROJECT_DIR$/SeekBar" />
             <option value="$PROJECT_DIR$/Spinner1" />
             <option value="$PROJECT_DIR$/Spinner2" />
+            <option value="$PROJECT_DIR$/TabHost" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

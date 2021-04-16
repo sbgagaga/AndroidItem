@@ -241,9 +241,20 @@ entries：设置下拉列表内容，需要先在values文件夹中先创建一�
 ListView：列表视图
 entries：设置列表项
 
+ScrollView：垂直滚动视图，HorizontalScrollView是水平滚动视图，默认一个滚动视图只能放一个组件，如果要放置多个组件需要用一个布局管理器把组件括起来
+格式：<ScrollView>
+<LinearLayout>
+	<TextView /> 
+	<TextView /> 
+</LinearLayout>
+</ScrollView>
 
+TabHost：选项卡
+TabHost：将布局管理器修改为TabHost
+TabWidget、TabContent
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------
+
 AndroidManifest.xml文件
 <activity android:name=".MainActivity"
 android:screenOrientation="landscape">//设置APP为横屏
