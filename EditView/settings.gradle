@@ -1,0 +1,2 @@
+include ':DeleteEditText'
+rootProject.name = "My Application"

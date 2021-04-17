@@ -23,7 +23,8 @@ layout_centerHorizontal、layout_centerInParent、layout_centerVertical：设置
 
 LinearLayout：线性布局管理器，分为垂直、水平布局管理器：每一行或者每一列只能放置一个组件，如果组件放置过多，超过屏幕将不会被显示
 orientation：设置线性布局管理器是垂直还是水平
-gravity：设置布局管理器内组件的位置，可以用|连接2个关键字进行设置
+gravity：设置布局管理器内子组件的对其方式，可以用|连接2个关键字进行设置
+layout_gravity：自组件的属性，设置该组件在父容器里的对其方式
 layout_weight：设置组件占父容器剩余空间的比例，默认是0.例如：一个水平布局管理器一共长100，一个组件20，一个组件30，剩余50，把这2个组件的比重都设置成1，那么将分配成45,55。
 
 FrameLayout：帧布局管理器
@@ -58,11 +59,60 @@ layout_rowWeight：子组件分配父组件垂直方向剩余空间的比例
 TextView：文本框组件，子类EditView的属性也可以使用
 singleLine：设置文本框是否为单行文本框，多余的文字会被...代替
 maxWidth：设置文本框的最大宽度，方便其自动换行
+textStyle：设置字体风格，可选值：normal、bold（加粗）、italic（斜体）
+textScaleX:设置字间距，默认值是1.0f，值是float
+lineSpacingExtra：设置行间距，单位是dp
+lineSpacingMultiplier：设置行间距的倍数
+shadowColor：设置阴影颜色，需要与shadowRadius一起使用
+shadowRadius：设置阴影模糊程度，建议使用3.0
+shadowDx：设置阴影在水平方向的偏移
+shadowDy：设置阴影在竖直方向的偏移
 设置字体大小用sp，设置宽度大小用dp
+文本框组件背景可以用xml文件指定，例子：
+angle：设置渐变的方向，0的时候从左到右，然后逆时针方向转，90是从下到上
+在drawable文件中新建一个xml文件
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+	<!--设置边框属性 -->
+	<stroke
+		android:width="2dp"
+		android:color="#ffff33"/>
+	<!--渐变 -->
+	<gradient
+		android:angle="270"
+		android:startColor="#FCD209"
+		android:endColor="#C0C0C0"/>
+	<!--设置内边距 -->
+	<padding
+		android:right="5dp"
+		android:top="5dp"
+		android:bottom="5dp"
+		android:left="5dp"/>
+	<!--设置背景色 -->
+	<solid android:color="#87ceeb"/>
+	<!--设置边框属性 -->
+	<stroke
+		android:width="2dp"
+		android:color="#000000"/>
+	<!--设置圆角 -->
+	<corners
+		android:bottomLeftRadius="20px"
+		android:topLeftRadius="20px"
+		android:topRightRadius="20px"
+		android:bottomRightRadius="20px"/>
+</shape>
+drawableTop、drawableLeft、drawableRight、drawableBottom：设置在上下左右四个方向的图片
+drawable大小只能用Java代码设置
+SpannableString像一个String一样，构造对象的时候传入一个String，之后再无法更改String的内容，也无法拼接多个 SpannableString；而SpannableStringBuilder则更像是StringBuilder，它可以通过其append()方法来拼接多个String。SetSpan()方法可以让字符串以不同的样式显示出来
+
 
 EditView：编辑框组件，是TextView的子类
 hint：设置提示文字，一旦输入内容就会消失
-inputType：设置输入类型，比如textPassword设置成密码框，设置textMultiLine可以监听到setOnEditorActionListener回车事件
+textColorHint：设置提示文字颜色
+selectAllOnFocus：设置为true后点击输入框获得焦点后，不是将光标移动到文本的开始或者结尾，而是全选输入的内容
+inputType：设置输入类型，比如textPassword设置成密码框，设置textMultiLine可以监听到setOnEditorActionListener回车事件，phone为拨号键盘
+minLines、maxLines：设置最大行数和最小行数
+capitalize：设置英文字母大写类型，默认是none，sentences：仅第一个字母大写、words：每一个单词首字母大小，用空格区分单词、characters:每一个英文字母都大写
 drawableLeft：在编辑框左侧显示图片，和drawableStart一样，还有drawableBottom、drawableRight（drawableEnd）、drawableTop
 drawablePadding：设置图片和文字的距离，单位是dp
 lines：设置编辑框组件的文本行数，多余的文本会自动滚动隐藏
