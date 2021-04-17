@@ -23,7 +23,8 @@ layout_centerHorizontal、layout_centerInParent、layout_centerVertical：设置
 
 LinearLayout：线性布局管理器，分为垂直、水平布局管理器：每一行或者每一列只能放置一个组件，如果组件放置过多，超过屏幕将不会被显示
 orientation：设置线性布局管理器是垂直还是水平
-gravity：设置布局管理器内组件的位置，可以用|连接2个关键字进行设置
+gravity：设置布局管理器内子组件的对其方式，可以用|连接2个关键字进行设置
+layout_gravity：自组件的属性，设置该组件在父容器里的对其方式
 layout_weight：设置组件占父容器剩余空间的比例，默认是0.例如：一个水平布局管理器一共长100，一个组件20，一个组件30，剩余50，把这2个组件的比重都设置成1，那么将分配成45,55。
 
 FrameLayout：帧布局管理器
@@ -52,24 +53,71 @@ layout_rowWeight：子组件分配父组件垂直方向剩余空间的比例
 布局管理器的嵌套
 根布局管理器必须包含xmlns属性，在一个布局文件中最多只能有一个根布局管理器，不能有太多嵌套，会影响性能
 
-UI组件：
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+基础UI组件：
 TextView：文本框组件，子类EditView的属性也可以使用
 singleLine：设置文本框是否为单行文本框，多余的文字会被...代替
 maxWidth：设置文本框的最大宽度，方便其自动换行
+textStyle：设置字体风格，可选值：normal、bold（加粗）、italic（斜体）
+textScaleX:设置字间距，默认值是1.0f，值是float
+lineSpacingExtra：设置行间距，单位是dp
+lineSpacingMultiplier：设置行间距的倍数
+shadowColor：设置阴影颜色，需要与shadowRadius一起使用
+shadowRadius：设置阴影模糊程度，建议使用3.0
+shadowDx：设置阴影在水平方向的偏移
+shadowDy：设置阴影在竖直方向的偏移
 设置字体大小用sp，设置宽度大小用dp
+文本框组件背景可以用xml文件指定，例子：
+angle：设置渐变的方向，0的时候从左到右，然后逆时针方向转，90是从下到上
+在drawable文件中新建一个xml文件
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+	<!--设置边框属性 -->
+	<stroke
+		android:width="2dp"
+		android:color="#ffff33"/>
+	<!--渐变 -->
+	<gradient
+		android:angle="270"
+		android:startColor="#FCD209"
+		android:endColor="#C0C0C0"/>
+	<!--设置内边距 -->
+	<padding
+		android:right="5dp"
+		android:top="5dp"
+		android:bottom="5dp"
+		android:left="5dp"/>
+	<!--设置背景色 -->
+	<solid android:color="#87ceeb"/>
+	<!--设置边框属性 -->
+	<stroke
+		android:width="2dp"
+		android:color="#000000"/>
+	<!--设置圆角 -->
+	<corners
+		android:bottomLeftRadius="20px"
+		android:topLeftRadius="20px"
+		android:topRightRadius="20px"
+		android:bottomRightRadius="20px"/>
+</shape>
+drawableTop、drawableLeft、drawableRight、drawableBottom：设置在上下左右四个方向的图片
+drawable大小只能用Java代码设置
+SpannableString像一个String一样，构造对象的时候传入一个String，之后再无法更改String的内容，也无法拼接多个 SpannableString；而SpannableStringBuilder则更像是StringBuilder，它可以通过其append()方法来拼接多个String。SetSpan()方法可以让字符串以不同的样式显示出来
+
 
 EditView：编辑框组件，是TextView的子类
 hint：设置提示文字，一旦输入内容就会消失
-inputType：设置输入类型，比如textPassword设置成密码框，设置textMultiLine可以监听到setOnEditorActionListener回车事件
+textColorHint：设置提示文字颜色
+selectAllOnFocus：设置为true后点击输入框获得焦点后，不是将光标移动到文本的开始或者结尾，而是全选输入的内容
+inputType：设置输入类型，比如textPassword设置成密码框，设置textMultiLine可以监听到setOnEditorActionListener回车事件，phone为拨号键盘
+minLines、maxLines：设置最大行数和最小行数
+capitalize：设置英文字母大写类型，默认是none，sentences：仅第一个字母大写、words：每一个单词首字母大小，用空格区分单词、characters:每一个英文字母都大写
 drawableLeft：在编辑框左侧显示图片，和drawableStart一样，还有drawableBottom、drawableRight（drawableEnd）、drawableTop
 drawablePadding：设置图片和文字的距离，单位是dp
 lines：设置编辑框组件的文本行数，多余的文本会自动滚动隐藏
 交互：EditText et=findViewById(R.id.编辑框的id)；//获取编辑框组件
 et.getText();//获取编辑框中输入的文本
-
-ImageView：图像组件
-src：设置图片
-scaleType：如何显示图片，默认是等比缩放，fitXY使图片缩放到控件大小，完全填充控件大小展示
 
 ButtonView：按钮组件，是TextView的子类
 text：设置按钮文本
@@ -137,15 +185,142 @@ dp.init(year,month,day,new DatePicker.OnDateChangedListener(){
 	}
 });
 
+TimePicker：时间选择器
+交互：TimePicker tp=findViewById(R.id.timePicker);
+tp.setIs24HourView(true);//设置成24小时制
+tp.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
+		@Override
+		public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
+		String str=hourOfDay+"时"+minute+"分";
+		Toast.makeText(MainActivity.this,str,Toast.LENGTH_SHORT).show();
+	}
+});
 
+Chronometer：计时器是TextView的子类
+format：设置格式，例如"已用时间：%s"
+setBase()：设置计时器的起始时间
+setFormat()：设置显示时间的格式
+start()：指定开始计时
+stop()：指定停止计时
+setOnChronometerTickListener()：为计时器绑定事件监听器，当计时器改变时触发该监听器
+交互：Chronometer ch=findViewById(R.id.ch);
+ch.setBase(SystemClock.elapsedRealtime());
+ch.setFormat("%s");
+ch.start();
+ch.setOnChronometerTickListener(new Chronometer.OnChronometerTickListener() {
+	@Override
+	public void onChronometerTick(Chronometer chronometer) {
+	if (SystemClock.elapsedRealtime()-ch.getBase()>=60000){//毫米单位
+			ch.stop();
+		}
+	}
+});
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+高级UI组件：
+ProgressBar：进度条组件
+max：设置进度条最大值，例如"100"
+progress：设置当前进度值，例如"50"
+style：设置样式，没有android:前缀。
+值有?android:attr/progressBarStyleHorizontal（水平进度条）、...Small（小的圆形进度条）、...Large（大的圆形进度条）
+@android:style/Widget.ProgressBar.Horizontal、...Small、...Large，第一个比上面粗，后面2个是规律旋转，上面的是不规律旋转
+
+SeekBar：拖动条组件，是进度条的子类
+thumb：设置拖动条原点的图案，可以是图片
+交互：SeekBar seekBar=findViewById(id号);
+seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+	@Override
+	public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {//参数2表示当前进度
+		//进度条改变
+	}
+
+	@Override
+	public void onStartTrackingTouch(SeekBar seekBar) {
+		//开始触摸进度条
+	}
+
+	@Override
+	public void onStopTrackingTouch(SeekBar seekBar) {
+		//结束触摸进度条
+	}
+});
+
+RatingBar：星级评分条
+numStars：设置星星个数
+rating：默认点亮星星数量
+stepSize：设置选择星星至少是几颗，默认是0.5
+isIndicator：设置星星是否能被改变，true表示不能改变
+交互：RatingBar rb=findViewById(id);
+String rating=String.valueOf(rb.getRating());//获取到选中星星的个数再把float转换成字符串
+String stepSize=String.valueOf(rb.getStepSize());//获取每次至少要改变多少星级再转换成字符串
+String stepSize=String.valueOf(rb.getProgress());//获取进度，就相当于有多少颗星星
+
+ImageView：图像组件
+src：设置图片
+scaleType：如何显示图片，默认是等比缩放。fitXY：使图片X轴和Y轴独立缩放
+adjustViewBounds：指定是否调整自己的边界来调整图片的长宽比，用来设置图像视图的最大高度和最大宽度
+maxWidth：设置最大宽度
+maxHeight：设置最大高度
+tint：设置着色，相当于图像加一层滤镜
+setImageAlpha();//设置透明度
+
+ImageSwitcher：图像切换器
+交互：ImageSwitcher is =findViewById(id);
+is.setOutAnimation(AnimationUtils.loadAnimation(MainActivity.this,android.R.anim.fade_out));//设置淡出动画
+is.setInAnimation(AnimationUtils.loadAnimation(MainActivity.this,android.R.anim.fade_in));//设置淡出动画
+
+GridView：网格视图（有点难后期要多看看了，代码抄好了）
+numColumns：设置列数，参数auto_fit表示自动排列
+verticalSpacing：设置间距
+columnWidth：设置宽度
+
+Adapter：适配器，常用ArrayAdapter、SmipleAdapter、SmipleCursorAdapter、BaseAdapter的实现类
+
+Spinner：下拉列表框
+entries：设置下拉列表内容，需要先在values文件夹中先创建一个xml文件，取名arrays.xml，例如：android:entries="@array/ctype"，可以不使用这个属性而使用适配器
+例如：<resources>
+<string-array name="ctype">
+	<item>全部</item>
+	<item>图书</item>
+	<item>花花</item>
+	<item>聊聊</item>
+	</string-array>>
+</resources>
+
+ListView：列表视图
+entries：设置列表项
+
+ScrollView：垂直滚动视图，HorizontalScrollView是水平滚动视图，默认一个滚动视图只能放一个组件，如果要放置多个组件需要用一个布局管理器把组件括起来
+格式：<ScrollView>
+<LinearLayout>
+	<TextView /> 
+	<TextView /> 
+</LinearLayout>
+</ScrollView>
+
+TabHost：选项卡
+TabHost：将布局管理器修改为TabHost
+TabWidget、TabContent
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+AndroidManifest.xml文件
+<activity android:name=".MainActivity"
+android:screenOrientation="landscape">//设置APP为横屏
+ </activity>
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
 
 注意事项：
 1、如果开起来手机设备找不到就在任务管理器中关闭adb.exe，再重启编译器
 2、design editor is unavailable until next gradle sync，如果界面出现这个错误点击sync project with Gradle Files按钮即可
 3、按键背景颜色无法生效时修改res/values/themes.xml和res/values-night/themes.xml文件中<style name="Theme.HelloWorld" parent="Theme.MaterialComponents.DayNight.DarkActionBar.Bridge">
 4、APP设置全屏显示的时候使用getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-	//但是标题栏没有去除掉，原因是继承了AppCompatActivity，在主配置文件中修改成android:theme="@style/Theme.AppCompat.NoActionBar"即可，参考https://blog.csdn.net/android157/article/details/80774143
-
+//但是标题栏没有去除掉，原因是继承了AppCompatActivity，在主配置文件中修改成android:theme="@style/Theme.AppCompat.NoActionBar"即可，参考https://blog.csdn.net/android157/article/details/80774143
+5、drawable是可拉伸，矢量图拉伸不会破坏图像效果，mipmap是分级细化
+6、Ctrl+Alt+空格：可以列出所有可选择的值
+7、android.R.layout.xx都是系统自带的配置文件id号
 
 
 

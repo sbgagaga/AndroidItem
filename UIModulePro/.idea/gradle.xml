@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="testRunner" value="PLATFORM" />
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleJvm" value="1.8" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/GridView1" />
+            <option value="$PROJECT_DIR$/GridView2" />
+            <option value="$PROJECT_DIR$/ImageSwitcher" />
+            <option value="$PROJECT_DIR$/ImageView" />
+            <option value="$PROJECT_DIR$/ListView1" />
+            <option value="$PROJECT_DIR$/ListView2" />
+            <option value="$PROJECT_DIR$/ProgressBar" />
+            <option value="$PROJECT_DIR$/RatingBar" />
+            <option value="$PROJECT_DIR$/ScrollView" />
+            <option value="$PROJECT_DIR$/SeekBar" />
+            <option value="$PROJECT_DIR$/Spinner1" />
+            <option value="$PROJECT_DIR$/Spinner2" />
+            <option value="$PROJECT_DIR$/TabHost" />
+          </set>
+        </option>
+        <option name="resolveModulePerSourceSet" value="false" />
+        <option name="useQualifiedModuleNames" value="true" />
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

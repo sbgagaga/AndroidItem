@@ -1,0 +1,7 @@
+include ':RollText'
+include ':SpannableStringBuilder'
+include ':SpannableString'
+include ':ImageAndTextView'
+include ':BordernAndRounded'
+include ':Shadow'
+rootProject.name = "My Application"
