@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        FrameLayout frameLayout=new FrameLayout(this);
+        FrameLayout frameLayout=new FrameLayout(this);//创建一个帧布局管理器
         frameLayout.setBackgroundResource(R.mipmap.bg);
         setContentView(frameLayout);
         TextView text1=new TextView(this);
@@ -30,8 +30,7 @@ public class MainActivity extends AppCompatActivity {
         text1.setTextSize(TypedValue.COMPLEX_UNIT_SP,18);
         text1.setTextColor(Color.rgb(17,85,114));
         FrameLayout.LayoutParams params=new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT);//一个设置布局宽度一个设置布局高度，都是包裹其自身大小
-        params.gravity= Gravity.CENTER;
+                ViewGroup.LayoutParams.WRAP_CONTENT,Gravity.CENTER);//一个设置布局宽度一个设置布局高度，都是包裹其自身大小
         text1.setLayoutParams(params);
         text1.setOnClickListener(new View.OnClickListener() {
             @Override
