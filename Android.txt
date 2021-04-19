@@ -307,7 +307,11 @@ TabWidget、TabContent
 
 Activity
 交互：Intent intent=new Intent(this,需要切换的界面.class);
+Bundle bundle=new Bundle();
+bundle.putCharSequence(Key,Value);//通过Bundle对象保存键值对
+intent.putExtras(bundle);//保存数据
 startActivity(intent);//切换主页
+startActivityForResult(intent,requestCode);//切换一个主页，并返回一个结果
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------
 
