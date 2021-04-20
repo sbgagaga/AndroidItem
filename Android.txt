@@ -313,6 +313,8 @@ intent.putExtras(bundle);//保存数据
 startActivity(intent);//切换主页
 startActivityForResult(intent,requestCode);//切换一个主页，并返回一个结果
 
+Fragment：小的Activity，就像微信界面一样，通过下面4个按钮进行切换
+
 ---------------------------------------------------------------------------------------------------------------------------------------------------
 
 AndroidManifest.xml文件
@@ -331,6 +333,7 @@ android:screenOrientation="landscape">//设置APP为横屏
 5、drawable是可拉伸，矢量图拉伸不会破坏图像效果，mipmap是分级细化
 6、Ctrl+Alt+空格：可以列出所有可选择的值
 7、android.R.layout.xx都是系统自带的配置文件id号
+8、使用Fragment的时候想要去除标题栏就把AppCompatActivity改变成Activity就会闪退
 
 
 
