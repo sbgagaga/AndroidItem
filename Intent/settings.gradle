@@ -1,0 +1,3 @@
+include ':ActionAndDate'
+include ':ComponentName'
+rootProject.name = "My Application"

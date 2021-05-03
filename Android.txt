@@ -314,6 +314,25 @@ startActivity(intent);//切换主页
 startActivityForResult(intent,requestCode);//切换一个主页，并返回一个结果
 
 Fragment：小的Activity，就像微信界面一样，通过下面4个按钮进行切换
+创建Fragment直接右键New->Fragment->Fragment(Blank)，直接创建空白Fragment组件，自动生产layout和java文件，重写java文件中的onCreateView方法即可
+例子@Override
+public View onCreateView(LayoutInflater inflater, ViewGroup container,
+	Bundle savedInstanceState) {
+	// Inflate the layout for this fragment
+	return inflater.inflate(R.layout.对应的layout名, container, false);
+}
+FragmentManager fm=getFragmentManager();
+FragmentTransaction ft=fm.beginTransaction();//FragmentTransaction对象可以对Fragment进行添加、移除、替换
+ft.commit();//将对Fragment的操作实现
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+Intent：Intent intent=new Intent();
+ComponentName属性：
+ComponentName componentName=new ComponentName("com.example.myapplication","com.example.myapplication.DetailActivity");//1、包名，2、类名
+intent.setComponent(componentName);//
+Action和Date属性：
+
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -334,7 +353,7 @@ android:screenOrientation="landscape">//设置APP为横屏
 6、Ctrl+Alt+空格：可以列出所有可选择的值
 7、android.R.layout.xx都是系统自带的配置文件id号
 8、使用Fragment的时候想要去除标题栏就把AppCompatActivity改变成Activity就会闪退
-
+9、使用Fragment的时候导包要导入android.app.Fragment而不是androidx.fragment.app.Fragment，后者的话就不能使用
 
 
 

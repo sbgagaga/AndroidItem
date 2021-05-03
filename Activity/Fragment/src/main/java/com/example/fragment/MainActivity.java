@@ -1,8 +1,8 @@
 package com.example.fragment;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 
+import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
@@ -19,6 +19,10 @@ public class MainActivity extends AppCompatActivity {
         ImageView imageView2=findViewById(R.id.btn2);
         ImageView imageView3=findViewById(R.id.btn3);
         ImageView imageView4=findViewById(R.id.btn4);
+        imageView1.setOnClickListener(l);
+        imageView2.setOnClickListener(l);
+        imageView3.setOnClickListener(l);
+        imageView4.setOnClickListener(l);
     }
 
     View.OnClickListener l=new View.OnClickListener() {
@@ -26,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View v) {
             FragmentManager fm=getFragmentManager();
             FragmentTransaction ft=fm.beginTransaction();
-            Fragment f;
+            Fragment f = null;
             switch(v.getId())
             {
                 case R.id.btn1:
@@ -45,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
             }
             ft.replace(R.id.fragment,f);
+            ft.commit();
         }
     };
 }
